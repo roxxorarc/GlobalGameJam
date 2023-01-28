@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnnemyView : MonoBehaviour
 {
     public float radius;
-    [Range(0, 180)]
+    [Range(0, 360)]
     public float angle;
 
     public GameObject player;
