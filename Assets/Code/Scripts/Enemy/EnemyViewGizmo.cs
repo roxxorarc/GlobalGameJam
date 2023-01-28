@@ -1,12 +1,12 @@
 using UnityEngine;
 using UnityEditor;
 
-[CustomEditor(typeof(EnemyView))]
+[CustomEditor(typeof(EnemiGlobal))]
 public class EnemyViewGizmo : Editor
 {
     private void OnSceneGUI()
     {
-        EnemyView enemyView = (EnemyView)target;
+        EnemiGlobal enemyView = (EnemiGlobal)target;
         Handles.color = Color.white;
         Handles.DrawWireArc(enemyView.transform.position, Vector3.up, Vector3.forward, 360, enemyView.radius);
 
