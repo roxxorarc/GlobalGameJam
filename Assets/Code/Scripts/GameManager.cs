@@ -11,7 +11,6 @@ public class GameManager : MonoBehaviour
 
     public enum GameState
     {
-        MainMenu,
         Playing,
         Paused,
         Spotted
@@ -49,7 +48,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        SetState(GameState.MainMenu);
+        SetState(GameState.Playing);
     }
 
     public void SetState(GameState newState)
@@ -59,9 +58,7 @@ public class GameManager : MonoBehaviour
 
         switch (state)
         {
-            case GameState.MainMenu:
-                LoadMainMenu();
-                break;
+
             case GameState.Playing:
                 break;
             case GameState.Paused:
@@ -87,12 +84,6 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Game Paused");
     }
-
-    private void LoadMainMenu()
-    {
-        Debug.Log("Main Menu Loaded");
-    }
-
 
     private void RespawnPlayer()
     {

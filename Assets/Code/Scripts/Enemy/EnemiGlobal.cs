@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,6 +20,9 @@ public class EnemiGlobal : MonoBehaviour
     public bool canSeePlayer;
     public bool isPlayerHidden;
 
+    [SerializeField]
+    Vector3 origin;
+
     //Enemi Patrol
 
     public List<Transform> _AnchorList;
@@ -38,11 +42,13 @@ public class EnemiGlobal : MonoBehaviour
     {
         transform.position = _AnchorList[0].transform.position;
         StartCoroutine(FOVRoutine());
+
     }
 
     private void Update()
     {
-        StartCoroutine(Move());
+        //     StartCoroutine(Move());
+        DrawFOV();
     }
 
     IEnumerator Move()
@@ -108,6 +114,66 @@ public class EnemiGlobal : MonoBehaviour
     }
 
 
+    private void DrawFOV()
+    {
 
+        Mesh mesh = new Mesh();
+        GetComponent<MeshFilter>().mesh = mesh;
+
+
+        float fov = angle;
+        float viewDistance = radius;
+        origin = this.transform.position;
+        int rayCount = 200;
+        float angleIncrease = fov / rayCount;
+
+
+        float angle2 = -fov / 2;
+
+        Vector3[] vertices = new Vector3[rayCount + 1 + 1];
+        Vector2[] uv = new Vector2[vertices.Length];
+        int[] triangles = new int[rayCount * 3];
+
+        int vertexIndex = 1;
+        int triangleIndex = 0;
+        for (int i = 0; i < rayCount; i++)
+        {
+            Vector3 vertex = DirFromAngle(angle2) * viewDistance;
+            RaycastHit hit;
+            if (Physics.Raycast(origin, DirFromAngle(angle2), out hit, viewDistance, obstructionMask))
+            {
+                vertex = hit.point - origin;
+            }
+
+            vertices[vertexIndex] = vertex;
+
+            if (i >= 1)
+            {
+                triangles[triangleIndex + 0] = 0;
+                triangles[triangleIndex + 1] = vertexIndex - 1;
+                triangles[triangleIndex + 2] = vertexIndex;
+                triangleIndex += 3;
+            }
+
+            vertexIndex++;
+
+            angle2 += angleIncrease;
+
+        }
+
+        mesh.vertices = vertices;
+        mesh.uv = uv;
+        mesh.triangles = triangles;
+
+    }
+
+
+
+    public Vector3 DirFromAngle(float angleInDegrees)
+    {
+
+        float angleInRadians = angleInDegrees * Mathf.Deg2Rad;
+        return new Vector3(Mathf.Sin(angleInRadians), 0, Mathf.Cos(angleInRadians));
+    }
 
 }

@@ -12,6 +12,8 @@ public class CanvasManager : MonoBehaviour
     public GameObject m_PauseMenu;
     public GameObject m_Ending;
 
+    public Image image;
+
 
     private void Awake()
     {
