@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemi : MonoBehaviour
+public class Enemy : MonoBehaviour
 {
     public List<Transform> _AnchorList;
 
@@ -41,7 +41,7 @@ public class Enemi : MonoBehaviour
         Vector3 dest = _AnchorList[m_Index].transform.position;
         Vector3 newPos = Vector3.MoveTowards(transform.position, dest, m_Speed * Time.deltaTime);
         transform.position = newPos;
-        
+
 
         float dist = Vector3.Distance(transform.position, dest);
         if (dist <= 0.1f)
@@ -49,7 +49,7 @@ public class Enemi : MonoBehaviour
             m_Index++;
 
         }
-        if (m_Index >3)
+        if (m_Index > 3)
         {
             m_Index = 0;
         }

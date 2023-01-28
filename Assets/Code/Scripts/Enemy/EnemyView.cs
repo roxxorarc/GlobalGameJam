@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnnemyView : MonoBehaviour
+public class EnemyView : MonoBehaviour
 {
     public float radius;
     [Range(0, 360)]
