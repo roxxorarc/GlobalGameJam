@@ -6,12 +6,6 @@ public class CanvasManager : MonoBehaviour
 
     public static CanvasManager s_Instance;
 
-    public Image _Image1;
-    public Image _Image2;
-    public Image _Image3;
-    public Image _Image4;
-    public Image _Image5;
-    public Image _Image6;
 
     public GameObject m_HUDMenu;
     public GameObject m_GameOver;
