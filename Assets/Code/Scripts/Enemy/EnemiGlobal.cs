@@ -54,7 +54,7 @@ public class EnemiGlobal : MonoBehaviour
 
 
         float dist = Vector3.Distance(transform.position, dest);
-        if (dist <= 0.1f)
+        if (dist <= 0.01f)
         {
             m_Index++;
 
@@ -81,7 +81,7 @@ public class EnemiGlobal : MonoBehaviour
 
     private void FieldOfViewCheck()
     {
-        isPlayerHidden = player.GetComponent<Interactor>().isHidden;
+        //isPlayerHidden = player.GetComponent<Interactor>().isHidden;
         Collider[] rangeChecks = Physics.OverlapSphere(transform.position, radius, targetMask);
 
         if (rangeChecks.Length != 0)
