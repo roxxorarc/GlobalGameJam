@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class Checkpoint : MonoBehaviour, IInteractable
 {
-    public GameObject checkpoint;
+    private Vector3 checkpoint;
 
+    private void Awake()
+    {
+        checkpoint = this.transform.position;
+    }
     public void Interact(Interactor interactor)
     {
-        interactor.SetCheckpoint(checkpoint.transform.position);
+        interactor.SetCheckpoint(checkpoint);
     }
 
 }
