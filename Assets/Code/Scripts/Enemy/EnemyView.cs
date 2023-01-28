@@ -75,7 +75,7 @@ public class EnemyView : MonoBehaviour
         float fov = angle;
         float viewDistance = radius;
         origin = this.transform.position;
-        int rayCount = 200;
+        int rayCount = 50;
         float angleIncrease = fov / rayCount;
 
 
@@ -92,20 +92,17 @@ public class EnemyView : MonoBehaviour
             Vector3 vertex = DirFromAngle(angle2) * viewDistance;
             RaycastHit hit;
 
-
             float rotation = transform.eulerAngles.y == 0 ? 1 : -1;
+
+
+
             if (Physics.Raycast(origin, transform.TransformDirection(DirFromAngle(angle2)), out hit, viewDistance, obstructionMask))
             {
                 vertex = (hit.point - origin) * rotation;
 
             }
 
-
-
-
             vertices[vertexIndex] = vertex;
-
-
 
 
             if (i >= 1)
