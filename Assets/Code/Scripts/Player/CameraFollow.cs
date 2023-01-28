@@ -6,15 +6,17 @@ public class CameraFollow : MonoBehaviour
     [SerializeField] private Transform player;
     [SerializeField] private float time = 0.3f;
     private Vector3 velocity = Vector3.zero;
-    public Camera MainCamera;
-    public Camera TopCamera;
-  
+
+    //CameraCollision
+    private RaycastHit m_Hit;
+
+    public Transform _CamTransform;
+    Vector3 _BaseOffset;
 
     void Start()
     {
         offset = transform.position - player.position;
-        MainCamera.enabled = true;
-        TopCamera.enabled = false;
+        _BaseOffset = offset;
 
 
     }
@@ -22,6 +24,7 @@ public class CameraFollow : MonoBehaviour
     private void Update()
     {
 
+<<<<<<< HEAD
         if (PlayerMovement.s_Instance.m_Hit.distance<=3)
         {
             TopCamera.enabled = true;
@@ -33,10 +36,33 @@ public class CameraFollow : MonoBehaviour
             MainCamera.enabled = true;
             TopCamera.enabled = false;
         }
+=======
+        // StartCoroutine(HighCamera());
+        // Debug.Log(m_Hit.distance);
+
+>>>>>>> parent of 33f508f (Merge branch 'main' of https://github.com/roxxorarc/GlobalGameJam into main)
     }
 
 
+    IEnumerator HighCamera()
+    {
+        RaycastHit m_Hit;
+        if (Physics.Raycast(transform.position, Vector3.back * 2, out m_Hit))
+        {
+            if (m_Hit.distance <= 2)
+            {
+                Debug.Log("On wall");
+                transform.position = _CamTransform.transform.position;
+                yield return null;
 
+            }
+
+        }
+
+        yield return null;
+
+
+    }
 
     void LateUpdate()
     {
@@ -44,5 +70,11 @@ public class CameraFollow : MonoBehaviour
         transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, time);
     }
 
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawRay(transform.position, Vector3.back * 2);
+    }
 
 }
