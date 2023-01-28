@@ -10,6 +10,7 @@ public class Interactor : MonoBehaviour
 
     private readonly Collider[] colliders = new Collider[3];
     [SerializeField] private int colliderCount;
+    public bool isHidden = false;
 
     private void Update()
     {
@@ -38,7 +39,12 @@ public class Interactor : MonoBehaviour
 
     public void Hide()
     {
-        Debug.Log("Hide");
+        var player = GameObject.FindWithTag("Player");
+        var playerMovement = player.GetComponent<PlayerMovement>();
+        player.GetComponent<MeshRenderer>().enabled = !player.GetComponent<MeshRenderer>().enabled;
+        playerMovement.enabled = !playerMovement.enabled;
+        isHidden = !isHidden;
+
     }
 
     public void SetCheckpoint(Vector3 position)

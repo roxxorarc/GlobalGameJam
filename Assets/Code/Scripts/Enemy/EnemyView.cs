@@ -14,6 +14,7 @@ public class EnemyView : MonoBehaviour
     [SerializeField]
     private LayerMask obstructionMask;
     public bool canSeePlayer;
+    public bool isPlayerHidden;
 
     private void Start()
     {
@@ -34,6 +35,7 @@ public class EnemyView : MonoBehaviour
 
     private void FieldOfViewCheck()
     {
+        isPlayerHidden = player.GetComponent<Interactor>().isHidden;
         Collider[] rangeChecks = Physics.OverlapSphere(transform.position, radius, targetMask);
 
         if (rangeChecks.Length != 0)
@@ -45,7 +47,7 @@ public class EnemyView : MonoBehaviour
             {
                 float distanceToTarget = Vector3.Distance(transform.position, target.position);
 
-                if (!Physics.Raycast(transform.position, directionToTarget, distanceToTarget, obstructionMask))
+                if (!Physics.Raycast(transform.position, directionToTarget, distanceToTarget, obstructionMask) && !isPlayerHidden)
                     canSeePlayer = true;
                 else
                     canSeePlayer = false;
