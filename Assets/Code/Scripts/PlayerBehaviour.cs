@@ -7,6 +7,8 @@ public class PlayerBehaviour : MonoBehaviour
     public CharacterController controller;
 
     public float speed = 60f;
+
+
     void Start()
     {
 
@@ -19,6 +21,9 @@ public class PlayerBehaviour : MonoBehaviour
 
         Vector3 move = transform.right * x + transform.forward * z;
         controller.Move(move * speed * Time.deltaTime);
+        Debug.Log(x);
+        Debug.Log(z);
+
 
     }
 }
