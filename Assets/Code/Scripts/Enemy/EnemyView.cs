@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyView : MonoBehaviour
 {
     public float radius;
-    [Range(-360, 360)]
+    [Range(0, 360)]
     public float angle;
     public GameObject player;
     [SerializeField]
@@ -91,12 +91,22 @@ public class EnemyView : MonoBehaviour
         {
             Vector3 vertex = DirFromAngle(angle2) * viewDistance;
             RaycastHit hit;
-            if (Physics.Raycast(origin, DirFromAngle(angle2), out hit, viewDistance, obstructionMask))
+
+
+            float rotation = transform.eulerAngles.y == 0 ? 1 : -1;
+            if (Physics.Raycast(origin, transform.TransformDirection(DirFromAngle(angle2)), out hit, viewDistance, obstructionMask))
             {
-                vertex = hit.point - origin;
+                vertex = (hit.point - origin) * rotation;
+
             }
 
+
+
+
             vertices[vertexIndex] = vertex;
+
+
+
 
             if (i >= 1)
             {
