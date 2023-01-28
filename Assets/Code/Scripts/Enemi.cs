@@ -37,9 +37,11 @@ public class Enemi : MonoBehaviour
 
     IEnumerator Move()
     {
+        transform.LookAt(_AnchorList[m_Index]);
         Vector3 dest = _AnchorList[m_Index].transform.position;
         Vector3 newPos = Vector3.MoveTowards(transform.position, dest, m_Speed * Time.deltaTime);
         transform.position = newPos;
+        
 
         float dist = Vector3.Distance(transform.position, dest);
         if (dist <= 0.1f)
