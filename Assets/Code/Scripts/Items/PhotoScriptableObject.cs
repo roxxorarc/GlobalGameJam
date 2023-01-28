@@ -10,4 +10,5 @@ public class PhotoScriptableObject : ScriptableObject
     public Sprite photoSprite;
 
 
+
 }

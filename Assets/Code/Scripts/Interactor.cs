@@ -53,8 +53,9 @@ public class Interactor : MonoBehaviour
         GameManager.instance.SetLastCheckPoint(position);
     }
 
-    public void PickPhoto(GameObject photo)
+    public void PickPhoto(PhotoScriptableObject photo)
     {
         Debug.Log("Photo" + photo);
+        GameManager.instance.AddPhoto(photo);
     }
 }

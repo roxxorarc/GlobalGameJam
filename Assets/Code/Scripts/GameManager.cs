@@ -23,6 +23,9 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private static GameState state;
 
+    [SerializeField]
+    private List<PhotoScriptableObject> inventory = new List<PhotoScriptableObject>();
+
 
     private void Awake()
     {
@@ -99,5 +102,10 @@ public class GameManager : MonoBehaviour
     public void SetLastCheckPoint(Vector3 checkPoint)
     {
         lastCheckPoint = checkPoint;
+    }
+
+    public void AddPhoto(PhotoScriptableObject photo)
+    {
+        inventory.Add(photo);
     }
 }
