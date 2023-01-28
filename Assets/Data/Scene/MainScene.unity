@@ -369,6 +369,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b126c50344f99824d853c3d56169a6d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  photo: {fileID: 11400000, guid: d8c40f037e903b5469853e5110fcff0a, type: 2}
 --- !u!1 &571902469
 GameObject:
   m_ObjectHideFlags: 0
@@ -550,6 +551,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 571902469}
   lastCheckPoint: {x: 0, y: 0, z: 0}
+  inventory: []
 --- !u!4 &840140178
 Transform:
   m_ObjectHideFlags: 0
@@ -1061,7 +1063,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1350658980}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.92, y: 3.01, z: -1.82}
+  m_LocalPosition: {x: 1.92, y: 3.01, z: 0.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1576,7 +1578,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!136 &2024138105
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1691,7 +1693,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 10.6
   angle: 80
-  player: {fileID: 0}
+  player: {fileID: 571902469}
   targetMask:
     serializedVersion: 2
     m_Bits: 0

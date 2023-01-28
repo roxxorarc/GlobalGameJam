@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class Photo : MonoBehaviour, IInteractable
 {
-    private GameObject photo; // plus tard modifier gameobject en scriptableobject pour traquer les différentes photos
-
-    private void Awake()
-    {
-        photo = this.gameObject;
-    }
-
+    [SerializeField]
+    private PhotoScriptableObject photo;
     public void Interact(Interactor interactor)
     {
         interactor.PickPhoto(photo);
+        Destroy(gameObject);
     }
 }
