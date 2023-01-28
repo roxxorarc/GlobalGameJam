@@ -6,17 +6,15 @@ public class CameraFollow : MonoBehaviour
     [SerializeField] private Transform player;
     [SerializeField] private float time = 0.3f;
     private Vector3 velocity = Vector3.zero;
+    public Camera MainCamera;
+    public Camera TopCamera;
 
-    //CameraCollision
-    private RaycastHit m_Hit;
-
-    public Transform _CamTransform;
-    Vector3 _BaseOffset;
 
     void Start()
     {
         offset = transform.position - player.position;
-        _BaseOffset = offset;
+        MainCamera.enabled = true;
+        TopCamera.enabled = false;
 
 
     }
@@ -32,32 +30,13 @@ public class CameraFollow : MonoBehaviour
         if (PlayerMovement.s_Instance.m_Hit.distance >= 3)
         {
             Debug.Log("main camera");
-
             MainCamera.enabled = true;
             TopCamera.enabled = false;
         }
     }
 
 
-    IEnumerator HighCamera()
-    {
-        RaycastHit m_Hit;
-        if (Physics.Raycast(transform.position, Vector3.back * 2, out m_Hit))
-        {
-            if (m_Hit.distance <= 2)
-            {
-                Debug.Log("On wall");
-                transform.position = _CamTransform.transform.position;
-                yield return null;
 
-            }
-
-        }
-
-        yield return null;
-
-
-    }
 
     void LateUpdate()
     {
@@ -65,11 +44,5 @@ public class CameraFollow : MonoBehaviour
         transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, time);
     }
 
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.green;
-        Gizmos.DrawRay(transform.position, Vector3.back * 2);
-    }
 
 }
