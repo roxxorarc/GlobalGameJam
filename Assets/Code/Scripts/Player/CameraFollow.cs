@@ -32,7 +32,7 @@ public class CameraFollow : MonoBehaviour
         }
          if (PlayerMovement.s_Instance.m_Hit.distance >= 3)
         {
-            Debug.Log("main camera");
+            
             MainCamera.enabled = true;
             TopCamera.enabled = false;
         }
