@@ -7,6 +7,7 @@ using UnityEngine;
 
 public class EnemiGlobal : MonoBehaviour
 {
+
     //Enemy View system
     public float radius;
     [Range(0, 360)]
