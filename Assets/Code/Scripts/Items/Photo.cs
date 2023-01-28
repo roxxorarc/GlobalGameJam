@@ -8,7 +8,7 @@ public class Photo : MonoBehaviour, IInteractable
     [SerializeField]
     private PhotoScriptableObject photo;
 
-    public Image image;
+    [SerializeField] private Image image;
 
     public void Start()
     {
