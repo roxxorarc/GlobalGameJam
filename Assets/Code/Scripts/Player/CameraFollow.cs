@@ -24,8 +24,8 @@ public class CameraFollow : MonoBehaviour
     private void Update()
     {
 
-       // StartCoroutine(HighCamera());
-        Debug.Log(m_Hit.distance);
+        // StartCoroutine(HighCamera());
+        // Debug.Log(m_Hit.distance);
 
     }
 

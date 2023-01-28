@@ -30,8 +30,8 @@ public class EnemiGlobal : MonoBehaviour
 
     private void Awake()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
-        
+        //   player = GameObject.FindGameObjectWithTag("Player");
+
     }
 
     private void Start()
@@ -59,13 +59,12 @@ public class EnemiGlobal : MonoBehaviour
             m_Index++;
 
         }
-        if (m_Index > _AnchorList.Count-1)
+        if (m_Index > _AnchorList.Count - 1)
         {
             m_Index = 0;
         }
 
         yield return null;
-
     }
 
     private IEnumerator FOVRoutine()
@@ -81,7 +80,7 @@ public class EnemiGlobal : MonoBehaviour
 
     private void FieldOfViewCheck()
     {
-        //isPlayerHidden = player.GetComponent<Interactor>().isHidden;
+        isPlayerHidden = player.GetComponent<Interactor>().isHidden;
         Collider[] rangeChecks = Physics.OverlapSphere(transform.position, radius, targetMask);
 
         if (rangeChecks.Length != 0)
@@ -94,7 +93,10 @@ public class EnemiGlobal : MonoBehaviour
                 float distanceToTarget = Vector3.Distance(transform.position, target.position);
 
                 if (!Physics.Raycast(transform.position, directionToTarget, distanceToTarget, obstructionMask) && !isPlayerHidden)
+                {
                     canSeePlayer = true;
+                    GameManager.instance.SetState(GameManager.GameState.Spotted);
+                }
                 else
                     canSeePlayer = false;
             }

@@ -50,6 +50,7 @@ public class Interactor : MonoBehaviour
     public void SetCheckpoint(Vector3 position)
     {
         Debug.Log("Checkpoint" + position);
+        GameManager.instance.SetLastCheckPoint(position);
     }
 
     public void PickPhoto(GameObject photo)
