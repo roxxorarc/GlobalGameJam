@@ -1,17 +1,12 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-
-public class EnemiGlobal : MonoBehaviour
+public class EnemyView : MonoBehaviour
 {
-    //Enemy View system
     public float radius;
-    [Range(0, 360)]
+    [Range(-360, 360)]
     public float angle;
-
     public GameObject player;
     [SerializeField]
     private LayerMask targetMask;
@@ -23,56 +18,15 @@ public class EnemiGlobal : MonoBehaviour
     [SerializeField]
     Vector3 origin;
 
-    //Enemi Patrol
-
-    public List<Transform> _AnchorList;
-
-    public float m_Speed = 5;
-
-    [SerializeField] private int m_Index = 0;
-
-
-    private void Awake()
-    {
-        //   player = GameObject.FindGameObjectWithTag("Player");
-
-    }
-
     private void Start()
     {
-        transform.position = _AnchorList[0].transform.position;
         StartCoroutine(FOVRoutine());
 
     }
-
     private void Update()
     {
-        //     StartCoroutine(Move());
         DrawFOV();
     }
-
-    IEnumerator Move()
-    {
-        transform.LookAt(_AnchorList[m_Index]);
-        Vector3 dest = _AnchorList[m_Index].transform.position;
-        Vector3 newPos = Vector3.MoveTowards(transform.position, dest, m_Speed * Time.deltaTime);
-        transform.position = newPos;
-
-
-        float dist = Vector3.Distance(transform.position, dest);
-        if (dist <= 0.01f)
-        {
-            m_Index++;
-
-        }
-        if (m_Index > _AnchorList.Count - 1)
-        {
-            m_Index = 0;
-        }
-
-        yield return null;
-    }
-
     private IEnumerator FOVRoutine()
     {
         WaitForSeconds wait = new WaitForSeconds(0.2f);
@@ -113,14 +67,11 @@ public class EnemiGlobal : MonoBehaviour
             canSeePlayer = false;
     }
 
-
     private void DrawFOV()
     {
 
         Mesh mesh = new Mesh();
         GetComponent<MeshFilter>().mesh = mesh;
-
-
         float fov = angle;
         float viewDistance = radius;
         origin = this.transform.position;

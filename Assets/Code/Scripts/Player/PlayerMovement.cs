@@ -35,7 +35,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (Physics.Raycast(transform.position, Vector3.back * 2, out m_Hit))
         {
-            Debug.Log(m_Hit.distance);
+            //            Debug.Log(m_Hit.distance);
 
         }
     }
