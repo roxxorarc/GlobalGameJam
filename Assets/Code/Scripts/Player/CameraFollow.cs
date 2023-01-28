@@ -24,23 +24,17 @@ public class CameraFollow : MonoBehaviour
     private void Update()
     {
 
-<<<<<<< HEAD
-        if (PlayerMovement.s_Instance.m_Hit.distance<=3)
+        if (PlayerMovement.s_Instance.m_Hit.distance <= 3)
         {
             TopCamera.enabled = true;
             MainCamera.enabled = false;
         }
-         if (PlayerMovement.s_Instance.m_Hit.distance >= 3)
+        if (PlayerMovement.s_Instance.m_Hit.distance >= 3)
         {
-            
+
             MainCamera.enabled = true;
             TopCamera.enabled = false;
         }
-=======
-        // StartCoroutine(HighCamera());
-        // Debug.Log(m_Hit.distance);
-
->>>>>>> parent of 33f508f (Merge branch 'main' of https://github.com/roxxorarc/GlobalGameJam into main)
     }
 
 
