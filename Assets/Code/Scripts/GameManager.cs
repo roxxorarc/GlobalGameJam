@@ -19,12 +19,11 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private Vector3 lastCheckPoint;
 
-    [SerializeField]
-    private static GameState state;
 
     [SerializeField]
     private List<PhotoScriptableObject> inventory = new List<PhotoScriptableObject>();
 
+       public GameState m_BaseState = GameState.Playing;
 
     private void Awake()
     {
@@ -40,35 +39,48 @@ public class GameManager : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
     }
 
+ 
+    void Start()
+    {
+        SwitchState(GameState.Playing);
+    }
+
     private void Update()
     {
 
+        UpdateState();
 
     }
 
-    void Start()
+    public void SwitchState(GameState NewState)
     {
-        SetState(GameState.Playing);
+       m_BaseState = NewState;
     }
 
-    public void SetState(GameState newState)
+    public void UpdateState()
     {
 
-        state = newState;
 
-        switch (state)
+        switch (m_BaseState)
         {
 
             case GameState.Playing:
+                CanvasManager.s_Instance.SetPauseMenu(!enabled);
+                Time.timeScale = 1f;
+                if (Input.GetButtonDown("Start") || Input.GetKey(KeyCode.Escape))
+                {
+                    SwitchState(GameState.Paused);
+                }
                 break;
             case GameState.Paused:
-                Pause();
+                    Pause();
+                
                 break;
             case GameState.Spotted:
                 PlayerSpotted();
                 break;
             default:
-                throw new System.ArgumentOutOfRangeException(nameof(state), state, null);
+                throw new System.ArgumentOutOfRangeException(nameof(m_BaseState), m_BaseState, null);
         }
     }
 
@@ -82,7 +94,14 @@ public class GameManager : MonoBehaviour
 
     private void Pause()
     {
+        Time.timeScale = 0f;
+        CanvasManager.s_Instance.SetPauseMenu(enabled);
         Debug.Log("Game Paused");
+        if (Input.GetButtonDown("Start"))
+        {
+            SwitchState(GameState.Playing);
+
+        }
     }
 
     private void RespawnPlayer()

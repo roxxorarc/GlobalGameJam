@@ -55,7 +55,7 @@ public class EnemyView : MonoBehaviour
                 if (!Physics.Raycast(transform.position, directionToTarget, distanceToTarget, obstructionMask) && !isPlayerHidden)
                 {
                     canSeePlayer = true;
-                    GameManager.instance.SetState(GameManager.GameState.Spotted);
+                    GameManager.instance.SwitchState(GameManager.GameState.Spotted);
                 }
                 else
                     canSeePlayer = false;
