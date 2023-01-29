@@ -18,6 +18,9 @@ public class EnemyView : MonoBehaviour
     [SerializeField]
     Vector3 origin;
 
+    [SerializeField]
+    Vector3 modular;
+
     private void Start()
     {
         StartCoroutine(FOVRoutine());
@@ -89,20 +92,16 @@ public class EnemyView : MonoBehaviour
         int triangleIndex = 0;
         for (int i = 0; i < rayCount; i++)
         {
-            Vector3 vertex = DirFromAngle(angle2) * viewDistance;
+            Vector3 vertex = transform.TransformDirection(DirFromAngle(angle2)) * viewDistance;
             RaycastHit hit;
 
-            float rotation = transform.eulerAngles.y == 0 ? 1 : -1;
-
-
-
+            float rotation = transform.rotation.eulerAngles.y;
             if (Physics.Raycast(origin, transform.TransformDirection(DirFromAngle(angle2)), out hit, viewDistance, obstructionMask))
             {
-                vertex = (hit.point - origin) * rotation;
-
+                vertex = (hit.point - origin);
             }
+            vertices[vertexIndex] = Quaternion.Euler(0, -rotation, 0) * vertex;
 
-            vertices[vertexIndex] = vertex;
 
 
             if (i >= 1)
@@ -122,6 +121,7 @@ public class EnemyView : MonoBehaviour
         mesh.vertices = vertices;
         mesh.uv = uv;
         mesh.triangles = triangles;
+        mesh.RecalculateNormals();
 
     }
 
