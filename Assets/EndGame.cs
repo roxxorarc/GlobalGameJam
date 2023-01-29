@@ -7,6 +7,8 @@ public class EndGame : MonoBehaviour
 {
     GameManager gm;
 
+    CanvasManager cm;
+
     List<PhotoScriptableObject> inventory;
 
     [SerializeField]
@@ -22,6 +24,7 @@ public class EndGame : MonoBehaviour
     void Start()
     {
         gm = GameManager.instance;
+        cm = CanvasManager.s_Instance;
 
     }
 
@@ -62,8 +65,7 @@ public class EndGame : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Inside collider");
-            gameObject.GetComponentInParent<GameObject>().SetActive(true);
+            cm.SetEnding(true);
             Debug.Log(this);
             displayEndGame();
         }
