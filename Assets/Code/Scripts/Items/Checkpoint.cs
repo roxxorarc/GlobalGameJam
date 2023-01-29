@@ -10,9 +10,14 @@ public class Checkpoint : MonoBehaviour, IInteractable
     {
         checkpoint = this.transform.position;
     }
+
+
     public void Interact(Interactor interactor)
     {
+
+
         interactor.SetCheckpoint(checkpoint);
     }
+
 
 }
