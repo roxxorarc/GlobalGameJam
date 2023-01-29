@@ -11,23 +11,41 @@ public class Interactor : MonoBehaviour
     private readonly Collider[] colliders = new Collider[3];
     [SerializeField] private int colliderCount;
     public bool isHidden = false;
+    private float currentTimeElapsed = 0f;
+
+    private float buttonPressDuration = 1.5f;
+
+    [SerializeField]
+    private Image progressImage;
+
+    [SerializeField]
+    private GameObject tooltip;
 
     private void Update()
     {
 
         colliderCount = Physics.OverlapSphereNonAlloc(interactionPoint.position, interactionRange, colliders, interactionMask);
-
+        bool collidersFound = colliderCount > 0;
+        DisplayTooltip(collidersFound);
         if (colliderCount > 0)
         {
 
             if (colliders[0].TryGetComponent(out IInteractable interactable))
             {
-                if (Input.GetButtonDown("Fire1")) // changer le nom du bouton.  Fire1 = E (ctrl gauche par défaut)
+                if (Input.GetButtonDown("Fire1") && !(interactable is Checkpoint)) // changer le nom du bouton.  Fire1 = E (ctrl gauche par défaut)
                 {
                     interactable.Interact(this);
                 }
-            }
+                else if (Input.GetButton("Fire1") && interactable is Checkpoint)
+                {
+                    IncrementProgress(interactable);
+                }
+                else
+                {
+                    currentTimeElapsed = 0f;
+                }
 
+            }
         }
     }
 
@@ -49,7 +67,8 @@ public class Interactor : MonoBehaviour
 
     public void SetCheckpoint(Vector3 position)
     {
-        Debug.Log("Checkpoint" + position);
+
+        Debug.Log("Checkpoint set to " + position);
         GameManager.instance.SetLastCheckPoint(position);
     }
 
@@ -58,4 +77,27 @@ public class Interactor : MonoBehaviour
         Debug.Log("Photo" + photo);
         GameManager.instance.AddPhoto(photo);
     }
+
+
+    private void IncrementProgress(IInteractable checkpoint)
+    {
+        currentTimeElapsed += Time.deltaTime;
+        UpdateProgressImage();
+        if (currentTimeElapsed >= buttonPressDuration)
+        {
+            checkpoint.Interact(this);
+        }
+    }
+
+    private void UpdateProgressImage()
+    {
+        var progress = currentTimeElapsed / buttonPressDuration;
+        progressImage.fillAmount = progress;
+    }
+
+    private void DisplayTooltip(bool collidersFound)
+    {
+        tooltip.SetActive(collidersFound);
+    }
+
 }
