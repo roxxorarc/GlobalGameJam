@@ -74,11 +74,18 @@ public class Interactor : MonoBehaviour
 
     public void Hide()
     {
+        AudioManager.s_Instance.Play("Hide");
         var player = GameObject.FindWithTag("Player");
         var playerMovement = player.GetComponent<PlayerMovement>();
         kid.SetActive(kid.activeSelf ? false : true);
         playerMovement.enabled = !playerMovement.enabled;
         isHidden = !isHidden;
+
+        if (isHidden)
+        {
+            AudioManager.s_Instance.Play("Breath");
+            AudioManager.s_Instance.Play("Hearth");
+        }
 
     }
 

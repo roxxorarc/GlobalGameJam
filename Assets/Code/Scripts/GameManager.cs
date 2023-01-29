@@ -117,7 +117,7 @@ public class GameManager : MonoBehaviour
     {
 
         player.transform.position = lastCheckPoint.transform.position;
-      //  player.GetComponent<PlayerMovement>().speed = 0;
+
         WaitForSecondsRealtime wait = new WaitForSecondsRealtime(1);
         StartCoroutine(wait);
         SwitchState(GameState.Playing);

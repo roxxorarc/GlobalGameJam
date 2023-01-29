@@ -36,20 +36,26 @@ public class BackGroundAudioManager : MonoBehaviour
 
     private void Start()
     {
-        Play("Background");
+        Play("Musique");
     }
 
     private void Update()
     {
 
+
+
         if (!m_PlaySound)
         {
-            m_PlaySound = true;
-            PlayRandom("Ambient");
             StartCoroutine(WaitToPlaySound(15, 60));
+            m_PlaySound = true;
+            PlayRandom("WoodRandom");
+            StartCoroutine(WaitToPlaySound(25, 60));
 
 
         }
+
+
+
 
 
     }

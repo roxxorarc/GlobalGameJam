@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
     private Animator _Animator;
 
 
+
     public CharacterController controller;
 
     public float speed = 5f;
@@ -14,6 +15,11 @@ public class PlayerMovement : MonoBehaviour
     public Vector3 _Direction;
 
     public RaycastHit m_Hit;
+
+    
+
+
+
     private void Awake()
     {
 
@@ -30,9 +36,11 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
+
     private void Start()
     {
         speedDefault = speed;
+        
     }
 
     void Update()
@@ -63,6 +71,15 @@ public class PlayerMovement : MonoBehaviour
     {
         Gizmos.color = Color.green;
         Gizmos.DrawRay(transform.position, Vector3.back * 2);
+    }
+
+
+    void StepSound()
+    {
+
+            AudioManager.s_Instance.PlayRandom("Step");
+
+
     }
 
 }
