@@ -6391,7 +6391,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09d582fc83024c34d96be845f50909e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  images: []
+  images:
+  - {fileID: 881104282}
+  - {fileID: 664813849}
+  - {fileID: 839255996}
+  - {fileID: 1370405828}
+  - {fileID: 2050273874}
+  - {fileID: 1618362779}
   text: {fileID: 1757961987}
 --- !u!1 &1133033735
 GameObject:
@@ -49548,7 +49554,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4131370130688652718}
-  - component: {fileID: 4131370130688652714}
   m_Layer: 5
   m_Name: EndHUD
   m_TagString: Untagged
@@ -49556,26 +49561,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!114 &4131370130688652714
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4131370130688652713}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09d582fc83024c34d96be845f50909e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  images:
-  - {fileID: 881104282}
-  - {fileID: 664813849}
-  - {fileID: 839255996}
-  - {fileID: 1370405828}
-  - {fileID: 2050273874}
-  - {fileID: 1618362779}
-  text: {fileID: 1757961987}
 --- !u!224 &4131370130688652718
 RectTransform:
   m_ObjectHideFlags: 0
