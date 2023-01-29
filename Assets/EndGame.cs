@@ -1,8 +1,7 @@
-using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
 public class EndGame : MonoBehaviour
 {
@@ -14,11 +13,11 @@ public class EndGame : MonoBehaviour
     private Image[] images;
 
     [SerializeField]
-    private TextMeshPro text;
+    private Text text;
 
     private string winText = "You have found all the photos of your family. You can now go back to your room and sleep. You will be able to see your family again tomorrow. Good night.";
 
-    private string loseText;
+    private string loseText = "You lost informations about your family, try again and collect all the pictures.";
 
     void Start()
     {
@@ -59,6 +58,18 @@ public class EndGame : MonoBehaviour
     }
 
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            Debug.Log("Inside collider");
+            gameObject.GetComponentInParent<GameObject>().SetActive(true);
+            Debug.Log(this);
+            displayEndGame();
+        }
+
+
+    }
 
 
 }
