@@ -318,6 +318,7 @@ MonoBehaviour:
   canSeePlayer: 0
   isPlayerHidden: 0
   origin: {x: 0, y: 0, z: 0}
+  modular: {x: 0, y: 0, z: 0}
 --- !u!33 &393552818
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -992,7 +993,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1172628804}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.1, z: -11.23}
+  m_LocalPosition: {x: -21.9, y: 0.1, z: 20.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1274781365}
@@ -1166,7 +1167,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1350658980}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ec6be890628f1884bae1fe92db1d01a7, type: 3}
   m_Name: 
@@ -1431,8 +1432,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 571902473}
   time: 0.3
-  MainCamera: {fileID: 1501452972}
-  TopCamera: {fileID: 0}
 --- !u!1 &1653187793
 GameObject:
   m_ObjectHideFlags: 0
@@ -1758,7 +1757,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1873529036}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.1, z: 17.3}
+  m_LocalPosition: {x: -21.9, y: 0.1, z: -1.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1274781365}
@@ -1795,22 +1794,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6cb4e07d3fc9424596f14dcc22f8e2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 3
-  angle: 80
-  player: {fileID: 5226486086275010259, guid: a1d3468aa39aa3e438ab827c9fad8281, type: 3}
-  targetMask:
-    m_Bits: 8
-  obstructionMask:
-    m_Bits: 128
-  canSeePlayer: 0
-  isPlayerHidden: 0
-  origin: {x: 0, y: 0, z: 0}
-  _AnchorList:
-  - {fileID: 0}
-  - {fileID: 0}
-  m_Speed: 5
-  m_Index: 0
-  doubleView: 0
 --- !u!23 &1948271660
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1984,15 +1967,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a6cf241178fff6448996f1ff3c22ab2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 10
-  angle: 80
-  player: {fileID: 0}
-  targetMask:
-    m_Bits: 8
-  obstructionMask:
-    m_Bits: 128
-  canSeePlayer: 0
-  isPlayerHidden: 0
 --- !u!114 &2024138110
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2005,20 +1979,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6cb4e07d3fc9424596f14dcc22f8e2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 10.6
-  angle: 80
-  player: {fileID: 571902469}
-  targetMask:
-    m_Bits: 0
-  obstructionMask:
-    m_Bits: 0
-  canSeePlayer: 0
-  isPlayerHidden: 0
-  origin: {x: 0, y: 0, z: 0}
-  _AnchorList: []
-  m_Speed: 5
-  m_Index: 0
-  doubleView: 0
 --- !u!1001 &2037084557
 PrefabInstance:
   m_ObjectHideFlags: 0
