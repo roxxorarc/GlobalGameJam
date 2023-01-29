@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Checkpoint : MonoBehaviour, IInteractable
+public class Checkpoint : MonoBehaviour
 {
     private Vector3 checkpoint;
 

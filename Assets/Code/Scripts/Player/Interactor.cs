@@ -34,18 +34,31 @@ public class Interactor : MonoBehaviour
 
             if (colliders[0].TryGetComponent(out IInteractable interactable))
             {
-                if (Input.GetButtonDown("Fire1") && !(interactable is Checkpoint)) // changer le nom du bouton.  Fire1 = E (ctrl gauche par défaut)
+                MonoBehaviour mb = (MonoBehaviour)interactable;
+                Checkpoint checkpoint = mb.GetComponent<Checkpoint>();
+                bool ok = false;
+
+                if (mb != null)
+                {
+                    GameObject go = mb.gameObject;
+                    ok = go.GetComponent<Checkpoint>() != null;
+                }
+                if (isHidden && ok)
+                {
+                    if (Input.GetButton("Fire1"))
+                    {
+                        IncrementProgress(checkpoint);
+                    }
+                    else
+                    {
+                        currentTimeElapsed = 0f;
+                    }
+                }
+                if (Input.GetButtonDown("Fire1"))
                 {
                     interactable.Interact(this);
                 }
-                else if (Input.GetButton("Fire1") && interactable is Checkpoint)
-                {
-                    IncrementProgress(interactable);
-                }
-                else
-                {
-                    currentTimeElapsed = 0f;
-                }
+
 
             }
         }
@@ -81,7 +94,7 @@ public class Interactor : MonoBehaviour
     }
 
 
-    private void IncrementProgress(IInteractable checkpoint)
+    private void IncrementProgress(Checkpoint checkpoint)
     {
         currentTimeElapsed += Time.deltaTime;
         UpdateProgressImage();
