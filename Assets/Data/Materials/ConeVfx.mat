@@ -83,7 +83,7 @@ Material:
     - __dirty: 0
     - _radius: 8
     m_Colors:
-    - _Color: {r: 1.4339623, g: 0.22185822, b: 0.22185822, a: 1}
+    - _Color: {r: 1.3726263, g: 0.19941926, b: 0.21089426, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Vector1: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
