@@ -64,6 +64,7 @@ public class GameManager : MonoBehaviour
         switch (m_BaseState)
         {
             case GameState.Playing:
+                player.GetComponent<PlayerMovement>().speed = player.GetComponent<PlayerMovement>().speedDefault;
                 CanvasManager.s_Instance.SetPauseMenu(!enabled);
                 Time.timeScale = 1f;
                 if (Input.GetButtonDown("Start") || Input.GetKey(KeyCode.Escape))
@@ -93,6 +94,7 @@ public class GameManager : MonoBehaviour
     private void PlayerSpotted()
     {
         Debug.Log("Player Spotted");
+        player.GetComponent<PlayerMovement>().speed = 0;
         RespawnPlayer();
     }
 
@@ -110,7 +112,7 @@ public class GameManager : MonoBehaviour
     private void RespawnPlayer()
     {
         player.transform.position = lastCheckPoint;
-        WaitForSecondsRealtime wait = new WaitForSecondsRealtime(2f);
+        WaitForSecondsRealtime wait = new WaitForSecondsRealtime(0.5f);
         StartCoroutine(wait);
         SwitchState(GameState.Playing);
 

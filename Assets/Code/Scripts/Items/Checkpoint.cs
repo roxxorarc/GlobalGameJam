@@ -4,18 +4,14 @@ using UnityEngine;
 
 public class Checkpoint : MonoBehaviour
 {
-    private Vector3 checkpoint;
-
-    private void Awake()
-    {
-        checkpoint = this.transform.position;
-    }
+    [SerializeField] private GameObject checkpoint;
 
 
     public void Interact(Interactor interactor)
     {
-        interactor.SetCheckpoint(checkpoint);
+        interactor.SetCheckpoint(checkpoint.transform.position);
     }
+
 
 
 }

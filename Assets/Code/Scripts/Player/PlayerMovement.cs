@@ -9,7 +9,8 @@ public class PlayerMovement : MonoBehaviour
 
     public CharacterController controller;
 
-    public float speed = 60f;
+    public float speed = 5f;
+    public float speedDefault;
     public Vector3 _Direction;
 
     public RaycastHit m_Hit;
@@ -27,6 +28,11 @@ public class PlayerMovement : MonoBehaviour
 
         _Animator = GetComponent<Animator>();
 
+    }
+
+    private void Start()
+    {
+        speedDefault = speed;
     }
 
     void Update()
