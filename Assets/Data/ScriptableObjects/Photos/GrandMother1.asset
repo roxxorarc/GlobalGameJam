@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: GrandMother1
   m_EditorClassIdentifier: 
   photoName: GrandMother1
-  photoSprite: {fileID: 21300000, guid: a04ecc9d5e12d5d449077414eb86635e, type: 3}
+  photoSprite: {fileID: 21300000, guid: e910e756e677d314b9b091d95a12409f, type: 3}
