@@ -7,7 +7,7 @@ public class EnemyView : MonoBehaviour
     public float radius;
     [Range(0, 360)]
     public float angle;
-    public GameObject player;
+    public Interactor player;
     [SerializeField]
     private LayerMask targetMask;
     [SerializeField]
@@ -29,8 +29,8 @@ public class EnemyView : MonoBehaviour
     private void Update()
     {
         DrawFOV();
-        Debug.Log(player.GetComponent<Interactor>().isHidden);
-        isPlayerHidden = player.GetComponent<Interactor>().isHidden;
+        Debug.Log(player.isHidden);
+        isPlayerHidden = player.isHidden;
     }
     private IEnumerator FOVRoutine()
     {
