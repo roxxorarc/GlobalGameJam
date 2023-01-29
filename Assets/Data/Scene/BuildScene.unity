@@ -12808,9 +12808,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '"You have found all the photos of your family. You can now go back to
-    your room and sleep. You will be able to see your family again tomorrow. Good
-    night."'
+  m_Text: 
 --- !u!222 &1757961988
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -62183,7 +62181,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4131370130688652718
 RectTransform:
   m_ObjectHideFlags: 0
@@ -74649,7 +74647,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5226486086275010271, guid: a1d3468aa39aa3e438ab827c9fad8281, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.14
+      value: 39.86
       objectReference: {fileID: 0}
     - target: {fileID: 5226486086275010271, guid: a1d3468aa39aa3e438ab827c9fad8281, type: 3}
       propertyPath: m_LocalPosition.y
@@ -74657,7 +74655,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5226486086275010271, guid: a1d3468aa39aa3e438ab827c9fad8281, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.21
+      value: 135.48
       objectReference: {fileID: 0}
     - target: {fileID: 5226486086275010271, guid: a1d3468aa39aa3e438ab827c9fad8281, type: 3}
       propertyPath: m_LocalRotation.w

@@ -65,10 +65,10 @@ public class GameManager : MonoBehaviour
         {
             case GameState.Playing:
                 if (!player.GetComponent<Interactor>().isHidden)
-                player.GetComponent<PlayerMovement>().enabled = true;
-                
+                    player.GetComponent<PlayerMovement>().enabled = true;
 
-                
+
+
                 CanvasManager.s_Instance.SetPauseMenu(!enabled);
                 Time.timeScale = 1f;
                 if (Input.GetButtonDown("Start") || Input.GetKey(KeyCode.Escape))
@@ -84,8 +84,7 @@ public class GameManager : MonoBehaviour
                 PlayerSpotted();
                 break;
             case GameState.EndGame:
-                CanvasManager.s_Instance.SetEnding(enabled);
-                CanvasManager.s_Instance.SetHUDMenu(!enabled);
+                CanvasManager.s_Instance.SetEnding(true);
                 Time.timeScale = 0;
                 break;
             default:
@@ -117,7 +116,7 @@ public class GameManager : MonoBehaviour
     {
 
         player.transform.position = lastCheckPoint.transform.position;
-      //  player.GetComponent<PlayerMovement>().speed = 0;
+        //  player.GetComponent<PlayerMovement>().speed = 0;
         WaitForSecondsRealtime wait = new WaitForSecondsRealtime(1);
         StartCoroutine(wait);
         SwitchState(GameState.Playing);
