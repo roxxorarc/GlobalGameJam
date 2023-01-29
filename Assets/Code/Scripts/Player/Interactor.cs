@@ -17,7 +17,7 @@ public class Interactor : MonoBehaviour
     private float buttonPressDuration = 1.5f;
 
     [SerializeField]
-    private Image progressImage;
+    private GameObject progressImage;
 
     [SerializeField]
     private GameObject tooltip;
@@ -28,6 +28,7 @@ public class Interactor : MonoBehaviour
         colliderCount = Physics.OverlapSphereNonAlloc(interactionPoint.position, interactionRange, colliders, interactionMask);
         bool collidersFound = colliderCount > 0;
         DisplayTooltip(collidersFound);
+        DisplayProgress(false);
         if (colliderCount > 0)
         {
 
@@ -93,12 +94,18 @@ public class Interactor : MonoBehaviour
     private void UpdateProgressImage()
     {
         var progress = currentTimeElapsed / buttonPressDuration;
-        progressImage.fillAmount = progress;
+        if (progress > 0) progressImage.SetActive(true);
+        progressImage.GetComponent<Image>().fillAmount = progress;
     }
 
     private void DisplayTooltip(bool collidersFound)
     {
         tooltip.SetActive(collidersFound);
+    }
+
+    private void DisplayProgress(bool active)
+    {
+        progressImage.SetActive(active);
     }
 
 }

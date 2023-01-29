@@ -14,8 +14,6 @@ public class Checkpoint : MonoBehaviour, IInteractable
 
     public void Interact(Interactor interactor)
     {
-
-
         interactor.SetCheckpoint(checkpoint);
     }
 
