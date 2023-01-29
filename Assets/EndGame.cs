@@ -14,12 +14,11 @@ public class EndGame : MonoBehaviour
     [SerializeField]
     private Image[] images;
 
-    [SerializeField]
-    private Text text;
 
-    private string winText = "You have found all the photos of your family. You can now go back to your room and sleep. You will be able to see your family again tomorrow. Good night.";
+    public GameObject winText; //= "You finally found what you really wanted. All the important souvenirs about your family. Even if they are not with you, with those photos, you will easily remember them.";
+    public GameObject LoseText; 
 
-    private string loseText = "You lost informations about your family, try again and collect all the pictures.";
+  //  public  string loseText = "You lost informations about your family, try again and collect all the pictures.";
 
     void Start()
     {
@@ -27,6 +26,7 @@ public class EndGame : MonoBehaviour
         cm = CanvasManager.s_Instance;
 
     }
+
 
     void displayEndGame()
     {
@@ -57,7 +57,10 @@ public class EndGame : MonoBehaviour
 
         }
 
-        text.text = inventory.Count == 6 ? winText : loseText;
+        
+
+        
+        // text.text = inventory.Count == 6 ? winText : loseText;
     }
 
 
@@ -68,6 +71,7 @@ public class EndGame : MonoBehaviour
             cm.SetEnding(true);
             Debug.Log(this);
             displayEndGame();
+            
         }
 
 
