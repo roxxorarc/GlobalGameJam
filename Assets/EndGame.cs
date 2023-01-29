@@ -24,6 +24,7 @@ public class EndGame : MonoBehaviour
     void Start()
     {
         gm = GameManager.instance;
+        cm = CanvasManager.s_Instance;
 
     }
 
@@ -64,7 +65,8 @@ public class EndGame : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            gm.SwitchState(GameManager.GameState.EndGame);
+            cm.SetEnding(true);
+            Debug.Log(this);
             displayEndGame();
         }
 
