@@ -13,7 +13,8 @@ public class GameManager : MonoBehaviour
     {
         Playing,
         Paused,
-        Spotted
+        Spotted,
+        EndGame
     }
 
     [SerializeField]
@@ -78,6 +79,11 @@ public class GameManager : MonoBehaviour
                 break;
             case GameState.Spotted:
                 PlayerSpotted();
+                break;
+            case GameState.EndGame:
+                CanvasManager.s_Instance.SetEnding(enabled);
+                CanvasManager.s_Instance.SetHUDMenu(!enabled);
+                Time.timeScale = 0;
                 break;
             default:
                 throw new System.ArgumentOutOfRangeException(nameof(m_BaseState), m_BaseState, null);

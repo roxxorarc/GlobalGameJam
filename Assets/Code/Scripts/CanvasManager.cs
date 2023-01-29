@@ -38,10 +38,6 @@ public class CanvasManager : MonoBehaviour
         m_PauseMenu.SetActive(enable);
     }
 
-    public void SetGameOver(bool enable)
-    {
-        m_GameOver.SetActive(enable);
-    }
 
     public void SetEnding(bool enable)
     {
