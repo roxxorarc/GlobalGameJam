@@ -23,12 +23,12 @@ public class EndGame : MonoBehaviour
     void Start()
     {
         gm = GameManager.instance;
-        inventory = gm.GetInventory();
-        displayEndGame();
+
     }
 
     void displayEndGame()
     {
+        inventory = gm.GetInventory();
         for (int i = 0; i < inventory.Count; i++)
         {
             switch (inventory[i].name)
