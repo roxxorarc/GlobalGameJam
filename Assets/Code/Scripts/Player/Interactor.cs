@@ -34,7 +34,6 @@ public class Interactor : MonoBehaviour
         DisplayProgress(false);
         if (colliderCount > 0)
         {
-
             if (colliders[0].TryGetComponent(out IInteractable interactable))
             {
                 MonoBehaviour mb = (MonoBehaviour)interactable;

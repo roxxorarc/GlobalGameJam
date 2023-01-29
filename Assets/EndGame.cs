@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class EndGame : MonoBehaviour
 {
@@ -12,6 +13,12 @@ public class EndGame : MonoBehaviour
     [SerializeField]
     private Image[] images;
 
+    [SerializeField]
+    private TextMeshPro text;
+
+    private string winText = "You have found all the photos of your family. You can now go back to your room and sleep. You will be able to see your family again tomorrow. Good night.";
+
+    private string loseText;
 
     void Start()
     {
@@ -47,6 +54,8 @@ public class EndGame : MonoBehaviour
             }
 
         }
+
+        text.text = inventory.Count == 6 ? winText : loseText;
     }
 
 
