@@ -210,6 +210,7 @@ GameObject:
   - component: {fileID: 96843121}
   - component: {fileID: 96843120}
   - component: {fileID: 96843123}
+  - component: {fileID: 96843125}
   - component: {fileID: 96843124}
   m_Layer: 8
   m_Name: checkpoint_hide test
@@ -303,7 +304,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 96843119}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e0cb8bd09842a54081e0762c3604dec, type: 3}
+  m_Script: {fileID: 11500000, guid: 18a223070097e9c4fbe34fe1cf92e187, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &96843125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 96843119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a08be6e045bab04ea80bf44bf7f11ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &235971044

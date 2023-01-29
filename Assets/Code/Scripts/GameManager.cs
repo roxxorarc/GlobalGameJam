@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private List<PhotoScriptableObject> inventory = new List<PhotoScriptableObject>();
 
-       public GameState m_BaseState = GameState.Playing;
+    public GameState m_BaseState = GameState.Playing;
 
     private void Awake()
     {
@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
     }
 
- 
+
     void Start()
     {
         SwitchState(GameState.Playing);
@@ -54,7 +54,7 @@ public class GameManager : MonoBehaviour
 
     public void SwitchState(GameState NewState)
     {
-       m_BaseState = NewState;
+        m_BaseState = NewState;
     }
 
     public void UpdateState()
@@ -73,8 +73,8 @@ public class GameManager : MonoBehaviour
                 }
                 break;
             case GameState.Paused:
-                    Pause();
-                
+                Pause();
+
                 break;
             case GameState.Spotted:
                 PlayerSpotted();
