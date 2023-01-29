@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     }
 
     [SerializeField]
-    private Vector3 lastCheckPoint;
+    private GameObject lastCheckPoint;
 
     [SerializeField]
     private List<PhotoScriptableObject> inventory = new List<PhotoScriptableObject>();
@@ -64,7 +64,11 @@ public class GameManager : MonoBehaviour
         switch (m_BaseState)
         {
             case GameState.Playing:
-                player.GetComponent<PlayerMovement>().speed = player.GetComponent<PlayerMovement>().speedDefault;
+                if (!player.GetComponent<Interactor>().isHidden)
+                player.GetComponent<PlayerMovement>().enabled = true;
+                
+
+                
                 CanvasManager.s_Instance.SetPauseMenu(!enabled);
                 Time.timeScale = 1f;
                 if (Input.GetButtonDown("Start") || Input.GetKey(KeyCode.Escape))
@@ -94,7 +98,7 @@ public class GameManager : MonoBehaviour
     private void PlayerSpotted()
     {
         Debug.Log("Player Spotted");
-        player.GetComponent<PlayerMovement>().speed = 0;
+        player.GetComponent<PlayerMovement>().enabled = false;
         RespawnPlayer();
     }
 
@@ -111,8 +115,10 @@ public class GameManager : MonoBehaviour
 
     private void RespawnPlayer()
     {
-        player.transform.position = lastCheckPoint;
-        WaitForSecondsRealtime wait = new WaitForSecondsRealtime(0.5f);
+
+        player.transform.position = lastCheckPoint.transform.position;
+      //  player.GetComponent<PlayerMovement>().speed = 0;
+        WaitForSecondsRealtime wait = new WaitForSecondsRealtime(1);
         StartCoroutine(wait);
         SwitchState(GameState.Playing);
 
@@ -120,7 +126,7 @@ public class GameManager : MonoBehaviour
 
     public void SetLastCheckPoint(Vector3 checkPoint)
     {
-        lastCheckPoint = checkPoint;
+        lastCheckPoint.transform.position = checkPoint;
     }
 
     public void AddPhoto(PhotoScriptableObject photo)
