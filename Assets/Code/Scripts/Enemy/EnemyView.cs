@@ -29,7 +29,6 @@ public class EnemyView : MonoBehaviour
     private void Update()
     {
         DrawFOV();
-        Debug.Log(player.isHidden);
         isPlayerHidden = player.isHidden;
     }
     private IEnumerator FOVRoutine()

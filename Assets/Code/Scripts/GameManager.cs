@@ -63,7 +63,6 @@ public class GameManager : MonoBehaviour
 
         switch (m_BaseState)
         {
-
             case GameState.Playing:
                 CanvasManager.s_Instance.SetPauseMenu(!enabled);
                 Time.timeScale = 1f;
@@ -105,13 +104,16 @@ public class GameManager : MonoBehaviour
         if (Input.GetButtonDown("Start"))
         {
             SwitchState(GameState.Playing);
-
         }
     }
 
     private void RespawnPlayer()
     {
         player.transform.position = lastCheckPoint;
+        WaitForSecondsRealtime wait = new WaitForSecondsRealtime(2f);
+        StartCoroutine(wait);
+        SwitchState(GameState.Playing);
+
     }
 
     public void SetLastCheckPoint(Vector3 checkPoint)
