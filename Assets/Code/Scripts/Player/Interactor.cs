@@ -22,6 +22,9 @@ public class Interactor : MonoBehaviour
     [SerializeField]
     private GameObject tooltip;
 
+    [SerializeField]
+    private GameObject kid;
+
     private void Update()
     {
 
@@ -43,6 +46,8 @@ public class Interactor : MonoBehaviour
                     GameObject go = mb.gameObject;
                     ok = go.GetComponent<Checkpoint>() != null;
                 }
+
+
                 if (isHidden && ok)
                 {
                     if (Input.GetButton("Fire1"))
@@ -58,8 +63,6 @@ public class Interactor : MonoBehaviour
                 {
                     interactable.Interact(this);
                 }
-
-
             }
         }
     }
@@ -74,7 +77,7 @@ public class Interactor : MonoBehaviour
     {
         var player = GameObject.FindWithTag("Player");
         var playerMovement = player.GetComponent<PlayerMovement>();
-        player.GetComponent<MeshRenderer>().enabled = !player.GetComponent<MeshRenderer>().enabled;
+        kid.SetActive(kid.activeSelf ? false : true);
         playerMovement.enabled = !playerMovement.enabled;
         isHidden = !isHidden;
 

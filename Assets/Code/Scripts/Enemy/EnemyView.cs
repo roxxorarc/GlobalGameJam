@@ -29,6 +29,8 @@ public class EnemyView : MonoBehaviour
     private void Update()
     {
         DrawFOV();
+        Debug.Log(player.GetComponent<Interactor>().isHidden);
+        isPlayerHidden = player.GetComponent<Interactor>().isHidden;
     }
     private IEnumerator FOVRoutine()
     {
@@ -43,7 +45,6 @@ public class EnemyView : MonoBehaviour
 
     private void FieldOfViewCheck()
     {
-        isPlayerHidden = player.GetComponent<Interactor>().isHidden;
         Collider[] rangeChecks = Physics.OverlapSphere(transform.position, radius, targetMask);
 
         if (rangeChecks.Length != 0)

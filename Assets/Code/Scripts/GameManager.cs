@@ -20,7 +20,6 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private Vector3 lastCheckPoint;
 
-
     [SerializeField]
     private List<PhotoScriptableObject> inventory = new List<PhotoScriptableObject>();
 
@@ -123,5 +122,10 @@ public class GameManager : MonoBehaviour
     public void AddPhoto(PhotoScriptableObject photo)
     {
         inventory.Add(photo);
+    }
+
+    public List<PhotoScriptableObject> GetInventory()
+    {
+        return inventory;
     }
 }
