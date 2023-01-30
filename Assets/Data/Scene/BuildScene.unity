@@ -4750,7 +4750,7 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 4c3b5d2667fd1fb40953e6d14a8d306a, type: 3}
     - {fileID: 8300000, guid: 6196612fd225af944a1acb88df44aa9a, type: 3}
     - {fileID: 8300000, guid: 73a3ab5c209e4ff42927f4e02181fec9, type: 3}
-    _Volume: 0.927
+    _Volume: 0
     _Pitch: 1
     _SpatialBlend: 0
     _Loop: 0
@@ -6817,7 +6817,7 @@ MonoBehaviour:
     _Clip:
     - {fileID: 8300000, guid: 03c2ec9f6e4fd214e815de89cacd4141, type: 3}
     - {fileID: 8300000, guid: 72bdba46a13636d4dbe11e752a7bc2f1, type: 3}
-    _Volume: 0.424
+    _Volume: 0.3
     _Pitch: 1
     _SpatialBlend: 0
     _Loop: 0
