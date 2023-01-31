@@ -76,6 +76,7 @@ public class EndGame : MonoBehaviour
             inventory = gm.GetInventory();
             cm.SetEnding(true);
             displayEndGame();
+            GameManager.instance._Controller.SetActive(false);
             Time.timeScale = 0;
             if (inventory.Count == 6)
             {

@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject player;
     public GameObject winText; //= "You finally found what you really wanted. All the important souvenirs about your family. Even if they are not with you, with those photos, you will easily remember them.";
     public GameObject LoseText;
+    public GameObject _Controller;
+
     public enum GameState
     {
         Playing,

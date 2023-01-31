@@ -3,10 +3,10 @@ using System.Collections;
 using UnityEngine.Audio;
 using UnityEngine;
 using Random = UnityEngine.Random;
-public class BackGroundAudioManager : MonoBehaviour
+public class BackGroundAudioManagerMain : MonoBehaviour
 {
     public Sound[] _Sounds;
-    public static BackGroundAudioManager s_Instance;
+    public static BackGroundAudioManagerMain s_Instance;
     [SerializeField] private bool m_PlaySound;
 
     private void Awake()
@@ -36,7 +36,7 @@ public class BackGroundAudioManager : MonoBehaviour
 
     private void Start()
     {
-        Play("Musique");
+        Play("Intro");
 
 
 
