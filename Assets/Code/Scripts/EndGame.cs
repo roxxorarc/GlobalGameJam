@@ -14,7 +14,6 @@ public class EndGame : MonoBehaviour
     [SerializeField]
     private Image[] images;
 
-
     public GameObject winText; //= "You finally found what you really wanted. All the important souvenirs about your family. Even if they are not with you, with those photos, you will easily remember them.";
     public GameObject LoseText; 
 
@@ -27,6 +26,12 @@ public class EndGame : MonoBehaviour
 
     }
 
+    private void Update()
+    {
+        inventory = gm.GetInventory();
+        
+        Debug.Log(inventory.Count);
+    }
 
     void displayEndGame()
     {
@@ -57,21 +62,30 @@ public class EndGame : MonoBehaviour
 
         }
 
-        
+        //inventory.Count == 6 ? winText : LoseText;
 
-        
-        // text.text = inventory.Count == 6 ? winText : loseText;
+
+        //text.text = inventory.Count == 6 ? winText : LoseText;
+
     }
-
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
+            inventory = gm.GetInventory();
             cm.SetEnding(true);
-            Debug.Log(this);
             displayEndGame();
-            
+            Time.timeScale = 0;
+            if (inventory.Count == 6)
+            {
+                winText.SetActive(true);
+                Debug.Log("win");
+            }
+            else if (inventory.Count < 6)
+            {
+                LoseText.SetActive(true);
+            }
         }
 
 

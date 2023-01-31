@@ -38,28 +38,6 @@ public class BackGroundAudioManager : MonoBehaviour
     {
         Play("Musique");
     }
-
-    private void Update()
-    {
-
-
-
-        if (!m_PlaySound)
-        {
-            StartCoroutine(WaitToPlaySound(15, 60));
-            m_PlaySound = true;
-            PlayRandom("WoodRandom");
-            StartCoroutine(WaitToPlaySound(25, 60));
-
-
-        }
-
-
-
-
-
-    }
-
     public void Play(string name)
     {
         Sound s = Array.Find(_Sounds, sound => sound._Name == name);
